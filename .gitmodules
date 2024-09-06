@@ -7,6 +7,7 @@
 [submodule "lib/lwip"]
 	path = lib/lwip
 	url = git@github.com:tye-begotten/lwip.git
+	branch = master
 [submodule "lib/mbedtls"]
 	path = lib/mbedtls
 	url = https://github.com/Mbed-TLS/mbedtls.git
