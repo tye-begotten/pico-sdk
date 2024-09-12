@@ -69,6 +69,10 @@ if (NOT TARGET _pico_sdk_pre_init_marker)
         endif()
     endmacro()
 
+    message("pico_sdk: registering t3 config.h file at: ${T3_CONFIG_HEADER_PATH}")
+    list(APPEND PICO_CONFIG_HEADER_FILES ${T3_CONFIG_HEADER_PATH})
+    list(APPEND PICO_INCLUDE_DIRS ${T3_INCLUDE_EXT_PATH})
+
     set(PICO_PROMOTE_COMMON_SCOPE_VARS
             PICO_INCLUDE_DIRS
             PICO_SDK_POST_LIST_DIRS
