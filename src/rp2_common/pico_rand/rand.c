@@ -363,12 +363,12 @@ uint64_t get_rand_64(void) {
     }
     // Generate a 64-bit RN from the modified PRNG state.
     // Note: This also "churns" the 128-bit state for next time.
-    uint64_t rand64 = xoroshiro128ss(&local_rng_state);
+    uint64_t randu64 = xoroshiro128ss(&local_rng_state);
     rng_state = local_rng_state;
     check_byte++;
     spin_unlock(lock, save);
 
-    return rand64;
+    return randu64;
 }
 
 void get_rand_128(rng_128_t *ptr128) {

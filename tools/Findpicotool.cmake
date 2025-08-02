@@ -36,7 +36,7 @@ if (NOT TARGET picotool)
 
         message("Downloading Picotool")
         FetchContent_Populate(picotool QUIET
-            GIT_REPOSITORY https://github.com/raspberrypi/picotool.git
+            GIT_REPOSITORY https://github.com/tye-begotten/picotool.git
             GIT_TAG develop
 
             SOURCE_DIR ${picotool_INSTALL_DIR}/picotool-src
