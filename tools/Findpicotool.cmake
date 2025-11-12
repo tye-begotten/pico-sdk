@@ -34,10 +34,25 @@ if (NOT TARGET picotool)
             )
         endif()
 
+        if (NOT PICOTOOL_GIT_REPOSITORY_URL)
+            set(PICOTOOL_GIT_REPOSITORY_URL https://github.com/raspberrypi/picotool.git)
+        endif()
+        if (NOT PICOTOOL_GIT_BRANCH)
+            if (PICO_SDK_VERSION_PRE_RELEASE_ID)
+                set(PICOTOOL_GIT_BRANCH ${PICO_SDK_VERSION_PRE_RELEASE_ID})
+            else()
+                set(PICOTOOL_GIT_BRANCH ${PICO_SDK_VERSION_STRING})
+            endif()
+        endif()
         message("Downloading Picotool")
         FetchContent_Populate(picotool QUIET
+<<<<<<< HEAD
             GIT_REPOSITORY https://github.com/tye-begotten/picotool.git
             GIT_TAG develop
+=======
+            GIT_REPOSITORY ${PICOTOOL_GIT_REPOSITORY_URL}
+            GIT_TAG ${PICOTOOL_GIT_BRANCH}
+>>>>>>> a1438dff1d38bd9c65dbd693f0e5db4b9ae91779
 
             SOURCE_DIR ${picotool_INSTALL_DIR}/picotool-src
             BINARY_DIR ${picotool_INSTALL_DIR}/picotool-build
